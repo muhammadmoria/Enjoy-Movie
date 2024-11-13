@@ -3,12 +3,5 @@ pandas
 numpy
 scikit-learn
 joblib
-matplotlib
-seaborn
-scipy
-lightfm
-nltk
-spacy
 requests
-beautifulsoup4
 json5
