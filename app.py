@@ -185,7 +185,7 @@ with tab3:
     if submit_feedback and name and feedback:
         # Save feedback to a file
         with open("feedback.txt", "a") as f:
-            f.write(f"{datetime.now()} - {name}: {feedback}\n")
+            f.write(f"{datetime.now().date()} - {name}: {feedback}\n")
         st.success("Thank you for your feedback!")
     elif submit_feedback:
         st.warning("Please enter both your name and feedback.")
