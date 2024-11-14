@@ -82,7 +82,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("""# 📽️ Welcome to the AI-Powered Movie Recommendation System! 🚀 """)
+st.markdown("""# 📽️ Welcome to the Movie Recommendation System! 🚀 """)
 
 
 
