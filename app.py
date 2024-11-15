@@ -172,7 +172,7 @@ with tab1:
     st.markdown("""
         <style>
         .stButton>button {
-            width: 300px;
+            width: 200px;
             height: 90px;
             margin: 5px;
             font-weight: bold;
