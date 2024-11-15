@@ -170,6 +170,11 @@ with tab1:
             <p>Contact: <b>muhammaddawoodmoria@gmail.com</b> | Phone: <b>+923709152202</b></p>
         </div>
     """, unsafe_allow_html=True)
+    st.markdown("""
+        <div class="footer">
+            <p>Github UserName: <b>muhammadmoria</b> | linkedin: muhammaddawood361510306</b></p>
+        </div>
+    """, unsafe_allow_html=True)
 
 
 
