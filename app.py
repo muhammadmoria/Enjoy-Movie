@@ -33,7 +33,7 @@ st.markdown("""
         /* Section Title Styling */
         .section-title {
             font-size: 1.8em;
-            color: #FFD700;
+            color: #000000; /* Dark black color */
             font-weight: bold;
             margin-top: 15px;
             text-align: center;
