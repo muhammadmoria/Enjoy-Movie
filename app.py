@@ -182,22 +182,22 @@ with tab1:
     
     # Title and message
     st.markdown("""
-        <h2 style="text-align: center;">📬 **Connect with Me** 📬</h2>
+        <h2 style="text-align: center;">📬 Connect with Me 📬</h2>
         <p style="text-align: center;">Let’s collaborate on projects, discuss AI innovations, or share knowledge!</p>
     """, unsafe_allow_html=True)
     
-    # Centered buttons
+    # Centered buttons for LinkedIn, GitHub, and Portfolio
     col1, col2, col3 = st.columns(3)
     with col1:
         linkedin = st.button("LinkedIn", key="linkedin")
     if linkedin:
         st.markdown("[Visit my LinkedIn](https://www.linkedin.com/in/muhammaddawood361510306/)")
-    
+
     with col2:
         github = st.button("GitHub", key="github")
     if github:
         st.markdown("[Visit my GitHub](https://github.com/muhammadmoria)")
-    
+
     with col3:
         portfolio = st.button("Portfolio", key="portfolio")
     if portfolio:
