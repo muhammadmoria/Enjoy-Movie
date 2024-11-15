@@ -49,12 +49,3 @@ In the age of streaming platforms, discovering new content can be overwhelming. 
 </p>
 
 ---
-
-## 🛠️ **Installation & Setup**
-
-To run the Movie Recommendation System locally, follow these steps:
-
-### **1. Clone the Repository:**
-```bash
-git clone https://github.com/muhammadmoria/movie-recommendation-system.git
-cd movie-recommendation-system
