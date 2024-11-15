@@ -165,9 +165,11 @@ with tab1:
             </ul>
         </div>
     """, unsafe_allow_html=True)
-    st.markdown("""<h3 class="section-title">👤 About Me</h3>""")
-    st.markdown("Gmail:muhammaddawoodmoria@gmail.com")
-    st.markdown("Contact No:+923709152202")
+    st.markdown("""
+        <div class="footer">
+            <p>Contact: <b>muhammaddawoodmoria@gmail.com</b> | Phone: <b>+923709152202</b></p>
+        </div>
+    """, unsafe_allow_html=True)
 
 
 
