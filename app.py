@@ -173,19 +173,19 @@ with tab1:
     """, unsafe_allow_html=True)
     
     st.markdown("""
-      <div align="center">
-      <h2>📬 **Connect with Me** 📬</h2>
-      <p>Let’s collaborate on projects, discuss AI innovations, or share knowledge!</p>
-    
-      <a href="https://www.linkedin.com/in/muhammaddawood361510306/" target="_blank">
-        <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white">
-      </a>
-      <a href="https://github.com/muhammadmoria" target="_blank">
-        <img src="https://img.shields.io/badge/-GitHub-%23181717?style=for-the-badge&logo=github&logoColor=white">
-      </a>
-      <a href="https://muhammadmoria.github.io/portfolio-new/" target="_blank">
-        <img src="https://img.shields.io/badge/-Portfolio-%2312100E?style=for-the-badge&logo=portfolio&logoColor=white">
-      </a>
+      <div class="card">
+          <h2>📬 **Connect with Me** 📬</h2>
+          <p>Let’s collaborate on projects, discuss AI innovations, or share knowledge!</p>
+        
+          <a href="https://www.linkedin.com/in/muhammaddawood361510306/" target="_blank">
+            <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+          </a>
+          <a href="https://github.com/muhammadmoria" target="_blank">
+            <img src="https://img.shields.io/badge/-GitHub-%23181717?style=for-the-badge&logo=github&logoColor=white">
+          </a>
+          <a href="https://muhammadmoria.github.io/portfolio-new/" target="_blank">
+            <img src="https://img.shields.io/badge/-Portfolio-%2312100E?style=for-the-badge&logo=portfolio&logoColor=white">
+          </a>
     </div>""")
 # Recommender Tab with Full Image Display
 with tab2:
