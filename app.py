@@ -166,27 +166,43 @@ with tab1:
         </div>
     """, unsafe_allow_html=True)
 
+
+
+    # Custom styling for buttons
     st.markdown("""
-        <div class="footer">
-            <p>Contact: <b>muhammaddawoodmoria@gmail.com</b> | Phone: <b>+923709152202</b></p>
-        </div>
+        <style>
+        .stButton>button {
+            width: 100px;
+            height: 35px;
+            margin: 5px;
+            font-weight: bold;
+        }
+        </style>
     """, unsafe_allow_html=True)
     
+    # Title and message
     st.markdown("""
-      <div class="card">
-          <h2>📬 **Connect with Me** 📬</h2>
-          <p>Let’s collaborate on projects, discuss AI innovations, or share knowledge!</p>
-        
-          <a href="https://www.linkedin.com/in/muhammaddawood361510306/" target="_blank">
-            <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white">
-          </a>
-          <a href="https://github.com/muhammadmoria" target="_blank">
-            <img src="https://img.shields.io/badge/-GitHub-%23181717?style=for-the-badge&logo=github&logoColor=white">
-          </a>
-          <a href="https://muhammadmoria.github.io/portfolio-new/" target="_blank">
-            <img src="https://img.shields.io/badge/-Portfolio-%2312100E?style=for-the-badge&logo=portfolio&logoColor=white">
-          </a>
-    </div>""")
+        <h2 style="text-align: center;">📬 **Connect with Me** 📬</h2>
+        <p style="text-align: center;">Let’s collaborate on projects, discuss AI innovations, or share knowledge!</p>
+    """, unsafe_allow_html=True)
+    
+    # Centered buttons
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        linkedin = st.button("LinkedIn", key="linkedin")
+    if linkedin:
+        st.markdown("[Visit my LinkedIn](https://www.linkedin.com/in/muhammaddawood361510306/)")
+    
+    with col2:
+        github = st.button("GitHub", key="github")
+    if github:
+        st.markdown("[Visit my GitHub](https://github.com/muhammadmoria)")
+    
+    with col3:
+        portfolio = st.button("Portfolio", key="portfolio")
+    if portfolio:
+        st.markdown("[Visit my Portfolio](https://muhammadmoria.github.io/portfolio-new/)")
+
 # Recommender Tab with Full Image Display
 with tab2:
     st.markdown("""<div class="card">🎬 Discover Your Next Favorite Film </div>""", unsafe_allow_html=True)
