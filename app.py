@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced CSS Styling with Stickers and Improved Layout
+# Enhanced CSS Styling to match the theme from the provided link
 st.markdown("""
     <style>
         /* Background and General Layout */
