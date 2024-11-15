@@ -57,10 +57,10 @@ st.markdown("""
         .feedback-box {
             background: #2F2F3B;
             color: #E0E0E0;
-            padding: 15px;
+            padding: 5px;
             border-radius: 8px;
             border: 1px solid #FFD700;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         /* Input Field Styling */
@@ -69,7 +69,7 @@ st.markdown("""
             color: #FFFFFF;
             border-radius: 5px;
             border: 1px solid #FFD700;
-            padding: 10px;
+            padding: 5px;
         }
 
         /* Responsive Buttons with Stickers */
