@@ -1,125 +1,187 @@
-
 import joblib
 import streamlit as st
 import requests
-from  datetime import datetime
-
+from datetime import datetime
 
 st.set_page_config(
-    page_title="Movie Recommendation System",
+    page_title="AI Movie Recommendation System",
     page_icon="🎬",
     layout="centered",
     initial_sidebar_state="expanded"
 )
-# Add custom CSS for setting the background color to black
-# Custom CSS for styling
+
+# Enhanced CSS Styling with Stickers and Improved Layout
 st.markdown("""
     <style>
-        /* Main Title */
-        .main-title {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #2C3E50;
-            text-align: center;
-            margin-bottom: 20px;
+        /* Background and General Layout */
+        body {
+            background: linear-gradient(135deg, #141E30, #243B55);
+            color: #E0E0E0;
+            font-family: 'Roboto', sans-serif;
         }
-        /* Section Titles */
+
+        /* Main Title with Sticker */
+        .main-title {
+            font-size: 2.8em;
+            font-weight: bold;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Section Title Styling */
         .section-title {
             font-size: 1.8em;
-            color: #3498DB;
+            color: #FFD700;
             font-weight: bold;
-            margin-top: 30px;
-            text-align: left;
-        }
-        /* Section Content */
-        .section-content{
+            margin-top: 15px;
             text-align: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
-        /* Home Page Content */
-        .intro-title {
-            font-size: 2.5em;
-            color: #2C3E50;
-            font-weight: bold;
-            text-align: center;
+
+        /* Card Styling */
+        .card {
+            background: #2C3E50;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
         }
-        .intro-subtitle {
-            font-size: 1.2em;
-            color: #34495E;
-            text-align: center;
+        .card:hover {
+            transform: scale(1.02);
         }
-        .content {
-            font-size: 1em;
-            color: #7F8C8D;
-            text-align: justify;
-            line-height: 1.6;
-        }
-        .highlight {
-            color: #2E86C1;
-            font-weight: bold;
-        }
-        /* Recommendation Titles and Descriptions */
-        .recommendation-title {
-            font-size: 22px;
-            color: #2980B9;
-        }
-        .recommendation-desc {
-            font-size: 16px;
-            color: #7F8C8D;
-        }
-        /* Separator Line */
-        .separator {
-            margin-top: 10px;
+
+        /* Feedback and Input Fields */
+        .feedback-box {
+            background: #2F2F3B;
+            color: #E0E0E0;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #FFD700;
             margin-bottom: 10px;
-            border-top: 1px solid #BDC3C7;
         }
+
+        /* Input Field Styling */
+        .stTextInput > div, .stTextArea > div {
+            background-color: #333945;
+            color: #FFFFFF;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+            padding: 10px;
+        }
+
+        /* Responsive Buttons with Stickers */
+        .stButton>button {
+            background-color: #FFD700;
+            color: #2C3E50;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: none;
+            position: relative;
+            padding-left: 35px;
+        }
+        .stButton>button::before {
+            content: "✨";
+            position: absolute;
+            left: 10px;
+            top: 3px;
+            font-size: 1.2em;
+        }
+        .stButton>button:hover {
+            background-color: #FFC300;
+            color: #282C34;
+        }
+
+        /* Uniform Recommendation Boxes */
+        .recommend-box {
+            background: #333945;
+            color: #FFD700;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .recommend-box img {
+            border-radius: 5px;
+            height: 180px;
+            width: 100%;
+            object-fit: contain;
+        }
+
         /* Footer */
         .footer {
             font-size: 14px;
             color: #95A5A6;
             margin-top: 20px;
             text-align: center;
+            font-style: italic;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .main-title { font-size: 2.2em; }
+            .section-title { font-size: 1.6em; }
         }
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("""# 📽️ Welcome to the Movie Recommendation System! 🚀 """)
+# Main Title with Icon
+st.markdown("""<div class="main-title">🎬 AI-Powered Movie Recommendations Engine </div>""", unsafe_allow_html=True)
 
+# Home Tab with About Me, Project Overview, and Technologies Used
+tab1, tab2, tab3 = st.tabs(["🏠 Home", "📋 Recommender", "💬 Feedback"])
 
-
-tab1, tab2, tab3 = st.tabs(["🏠Home", "📋Movie Recommender", "✍️ Provide Feedback"])
-# Page 1: Home
 with tab1:
-   st.markdown("""
-        
-        ## 👋 About Me  
-        Hi! I'm Muhammad Dawood, a data scientist with expertise in machine learning, deep learning, and Natural Language Processing (NLP).  
-        I specialize in building intelligent systems, web applications, and crafting data-driven solutions for impactful user experiences.
+    st.markdown("""
+        <div class="card">
+            <h3 class="section-title">👤 About Me</h3>
+            <p>
+                Hi! I'm Muhammad Dawood, a data scientist specializing in machine learning, deep learning, and NLP.
+                My passion lies in building intelligent systems and web applications that enhance user experiences.
+            </p>
+        </div>
 
-        ## 🔍 Project Overview  
-        This project is focused on recommending movies based on users' preferences and watching patterns. Here’s what we’ve accomplished:
-        - **Data Collection** 📊: Processed and analyzed a diverse movie dataset with feature engineering to capture meaningful attributes and user preferences.
-        - **Intelligent Recommendations** 🔍: Leveraged powerful machine learning algorithms to provide personalized movie recommendations based on similarity scores and user input.
-        - **Model Optimization** 📈: Tuned model parameters to improve recommendation accuracy, ensuring the system adapts effectively to diverse movie tastes.
-        - **Deployment** 🌐: Developed an intuitive app interface that is user-friendly, allowing easy navigation for discovering movies.
+        <div class="card">
+            <h3 class="section-title">🚀 Project Overview</h3>
+            <p>
+                This AI-driven movie recommendation system uses advanced machine learning and NLP to suggest movies 
+                based on user preferences. The model is trained on a vast dataset to deliver personalized recommendations.
+            </p>
+        </div>
 
-        ## 💻 Technologies Used  
-        - **Languages & Libraries**: Python, Pandas, Scikit-Learn, Joblib, and Streamlit for an interactive interface.
-        - **Deployment**: Built and deployed using Streamlit to offer a dynamic and engaging user experience.
+        <div class="card">
+            <h3 class="section-title">⚙️ Technologies Used</h3>
+            <ul style="list-style: none; padding-left: 10px;">
+                <li>🐍 <b>Python</b> - Programming Language</li>
+                <li>🤖 <b>Machine Learning</b> - Recommendation Engine</li>
+                <li>📊 <b>Data Science</b> - Data Processing and Analysis</li>
+                <li>🧠 <b>Deep Learning</b> - Model Improvement</li>
+                <li>💡 <b>NLP</b> - Natural Language Processing for Recommendations</li>
+            </ul>
+        </div>
+    """, unsafe_allow_html=True)
 
-        Created by Muhammad Dawood, combining machine learning and data engineering to enhance how we discover films. 🌐
-        Gmail: muhammaddawoodmoria@gmail.com
-        """)
+    st.markdown("""
+        <div class="footer">
+            <p>Contact: <b>muhammaddawoodmoria@gmail.com</b> | Phone: <b>+923709152202</b></p>
+        </div>
+    """, unsafe_allow_html=True)
 
+# Recommender Tab with Full Image Display
 with tab2:
-    st.markdown("""Discover your next favorite film with our intelligent recommendation engine,
-        tailored to help you find movies you'll love. 🎬✨""")
+    st.markdown("""<div class="section-title">🎬 Discover Your Next Favorite Film ✨</div>""", unsafe_allow_html=True)
+
+    # Functions for poster fetching and recommendations
     def fetch_poster(movie_id):
-        url = "https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(movie_id)
-        data = requests.get(url)
-        data = data.json()
-        poster_path = data['poster_path']
-        full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
-        return full_path
+        url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US"
+        data = requests.get(url).json()
+        poster_path = data.get('poster_path', '')
+        return f"https://image.tmdb.org/t/p/w500/{poster_path}" if poster_path else ""
 
     def recommend(movie):
         index = movies[movies['title'] == movie].index[0]
@@ -127,76 +189,47 @@ with tab2:
         recommended_movie_names = []
         recommended_movie_posters = []
         for i in distances[1:6]:
-            # fetch the movie poster
             movie_id = movies.iloc[i[0]].movie_id
             recommended_movie_posters.append(fetch_poster(movie_id))
             recommended_movie_names.append(movies.iloc[i[0]].title)
-
         return recommended_movie_names, recommended_movie_posters
 
-    # Streamlit header
-    st.header('🎬 Movie Recommender System 📽️')
-
-    # Load the pre-trained data
+    # Load Data
     movies = joblib.load(open('movie_list.pkl', 'rb'))
     similarity = joblib.load(open('similarity_compressed.pkl', 'rb'))
+    selected_movie = st.selectbox("Choose a Movie 🎥", movies['title'].values)
 
-    # Dropdown for selecting a movie
-    movie_list = movies['title'].values
-    selected_movie = st.selectbox(
-        "Type or select a movie from the dropdown",
-        movie_list
-    )
-
-    # Show recommendations when the button is clicked
-    if st.button('Show Recommendation'):
+    # Show Recommendations
+    if st.button('🎬 Show Recommendations'):
         recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
-        
-        # Use columns for displaying the movie posters and names
-        col1, col2, col3, col4, col5 = st.columns(5)
-        
-        with col1:
-            st.text(recommended_movie_names[0])
-            st.image(recommended_movie_posters[0])
-        
-        with col2:
-            st.text(recommended_movie_names[1])
-            st.image(recommended_movie_posters[1])
-        
-        with col3:
-            st.text(recommended_movie_names[2])
-            st.image(recommended_movie_posters[2])
-        
-        with col4:
-            st.text(recommended_movie_names[3])
-            st.image(recommended_movie_posters[3])
-        
-        with col5:
-            st.text(recommended_movie_names[4])
-            st.image(recommended_movie_posters[4])
+        for name, poster in zip(recommended_movie_names, recommended_movie_posters):
+            st.markdown(f"""
+                <div class="recommend-box">
+                    <img src="{poster}" alt="{name}">
+                    <p><b>{name}</b></p>
+                </div>
+            """, unsafe_allow_html=True)
+
+# Feedback Tab with Styled Input Fields and Feedback Display
 with tab3:
-    st.title("💬 Provide Feedback")
-    st.write("We value your feedback! Please share your experience with this app.")
+    st.markdown("<div class='section-title'>💬 We Value Your Feedback!</div>", unsafe_allow_html=True)
 
-    # Feedback form
-    name = st.text_input("Name", "")
-    feedback = st.text_area("Feedback", "")
-    submit_feedback = st.button("Submit Feedback")
+    name = st.text_input("Name", key="name_input")
+    feedback = st.text_area("Message", key="feedback_input")
 
-    if submit_feedback and name and feedback:
-        # Save feedback to a file
-        with open("feedback.txt", "a") as f:
-            f.write(f"{datetime.now().date()} - {name}: {feedback}\n")
-        st.success("Thank you for your feedback!")
-    elif submit_feedback:
-        st.warning("Please enter both your name and feedback.")
+    if st.button("🚀 Submit Feedback"):
+        if name and feedback:
+            with open("feedback.txt", "a") as f:
+                f.write(f"{datetime.now().date()} - {name}: {feedback}\n")
+            st.success("Thank you for your feedback!")
+        else:
+            st.warning("Please provide both name and feedback.")
 
-    # Display previous feedback
-    st.subheader("Previous Feedback")
+    # Display previous feedback in styled boxes
+    st.markdown("<div class='section-title'>📜 Previous Feedback</div>", unsafe_allow_html=True)
     try:
         with open("feedback.txt", "r") as f:
-            feedback_history = f.readlines()
-            for line in feedback_history:
-                st.write(line)
+            for line in f.readlines():
+                st.markdown(f"<div class='feedback-box'>{line}</div>", unsafe_allow_html=True)
     except FileNotFoundError:
         st.info("No feedback has been provided yet.")
