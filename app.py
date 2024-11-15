@@ -165,6 +165,7 @@ with tab1:
             <p>
                 Hi! I'm Muhammad Dawood, a data scientist specializing in machine learning, deep learning, and NLP.
                 My passion lies in building intelligent systems and web applications that enhance user experiences.
+                [Gmail: muhammaddawoodmoria@gmail.com]
             </p>
         </div>
 
@@ -191,23 +192,9 @@ with tab1:
             <a href="https://www.linkedin.com/in/muhammaddawood361510306/" target="_blank">LinkedIn</a>
             <a href="https://muhammadmoria.github.io/portfolio-new/">Portfolio</a>
             <a href="https://wa.me/923709152202" target="_blank">WhatsApp</a>
-        
-        
-
-
-
-
         </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-        
-        <div class="footer">
-        <center>
-            <p>Gmail : <b>muhammaddawoodmoria@gmail.com</b></p>
-            </center>
-        </div>
-    """, unsafe_allow_html=True)
 
 # Recommender Tab with Full Image Display
 with tab2:
