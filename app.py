@@ -58,7 +58,7 @@ st.markdown("""
             background: #2F2F3B;
             color: #E0E0E0;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 4px;
             border: 1px solid #FFD700;
             margin-bottom: 10px;
         }
@@ -67,7 +67,7 @@ st.markdown("""
         .stTextInput > div, .stTextArea > div {
             background-color: #333945;
             color: #FFFFFF;
-            border-radius: 5px;
+            border-radius: 2px;
             border: 1px solid #FFD700;
             padding: 10px;
         }
