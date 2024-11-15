@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced CSS Styling to match the theme from the provided link
+# Enhanced CSS Styling with Stickers and Improved Layout
 st.markdown("""
     <style>
         /* Background and General Layout */
@@ -42,7 +42,7 @@ st.markdown("""
 
         /* Card Styling */
         .card {
-            background: #2C3E50;
+            background: #6B8E23;
             padding: 15px;
             border-radius: 10px;
             margin: 10px 0;
@@ -51,11 +51,6 @@ st.markdown("""
         }
         .card:hover {
             transform: scale(1.02);
-        }
-
-        /* Paragraph Text inside the Cards */
-        .card p {
-            color: #000000; /* Dark black text for paragraphs inside cards */
         }
 
         /* Feedback and Input Fields */
@@ -179,7 +174,7 @@ with tab1:
 
 # Recommender Tab with Full Image Display
 with tab2:
-    st.markdown("""<div class="section-title">🎬 Discover Your Next Favorite Film ✨</div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="card">🎬 Discover Your Next Favorite Film </div>""", unsafe_allow_html=True)
 
     # Functions for poster fetching and recommendations
     def fetch_poster(movie_id):
@@ -217,7 +212,7 @@ with tab2:
 
 # Feedback Tab with Styled Input Fields and Feedback Display
 with tab3:
-    st.markdown("<div class='section-title'>💬 We Value Your Feedback!</div>", unsafe_allow_html=True)
+    st.markdown("<div class='card'>💬 We Value Your Feedback!</div>", unsafe_allow_html=True)
 
     name = st.text_input("Name", key="name_input")
     feedback = st.text_area("Message", key="feedback_input")
@@ -231,14 +226,10 @@ with tab3:
             st.warning("Please provide both name and feedback.")
 
     # Display previous feedback in styled boxes
-    st.markdown("<div class='section-title'>📜 Previous Feedback</div>", unsafe_allow_html=True)
+    st.markdown("<div class='card'>📜 Previous Feedback</div>", unsafe_allow_html=True)
     try:
         with open("feedback.txt", "r") as f:
             for line in f.readlines():
-                st.markdown(f"""
-                    <div class="feedback-box">
-                        <p>{line}</p>
-                    </div>
-                """, unsafe_allow_html=True)
+                st.markdown(f"<div class='feedback-box'>{line}</div>", unsafe_allow_html=True)
     except FileNotFoundError:
-        st.warning("No feedback available yet.")
+        st.info("No feedback has been provided yet.")
