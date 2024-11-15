@@ -33,7 +33,7 @@ st.markdown("""
         /* Section Title Styling */
         .section-title {
             font-size: 1.8em;
-            color: #000000; /* Dark black color */
+            color: #FFD700;
             font-weight: bold;
             margin-top: 15px;
             text-align: center;
@@ -51,6 +51,11 @@ st.markdown("""
         }
         .card:hover {
             transform: scale(1.02);
+        }
+
+        /* Paragraph Text inside the Cards */
+        .card p {
+            color: #000000; /* Dark black text for paragraphs inside cards */
         }
 
         /* Feedback and Input Fields */
@@ -230,6 +235,10 @@ with tab3:
     try:
         with open("feedback.txt", "r") as f:
             for line in f.readlines():
-                st.markdown(f"<div class='feedback-box'>{line}</div>", unsafe_allow_html=True)
+                st.markdown(f"""
+                    <div class="feedback-box">
+                        <p>{line}</p>
+                    </div>
+                """, unsafe_allow_html=True)
     except FileNotFoundError:
-        st.info("No feedback has been provided yet.")
+        st.warning("No feedback available yet.")
