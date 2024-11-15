@@ -113,19 +113,41 @@ st.markdown("""
             object-fit: contain;
         }
 
-        /* Footer */
-        .footer {
-            font-size: 14px;
-            color: #95A5A6;
-            margin-top: 20px;
-            text-align: center;
-            font-style: italic;
+        /* Profile Buttons */
+        .profile-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
         }
 
-        /* Mobile Adjustments */
+        .profile-buttons a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            background: #FFD700;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .profile-buttons a:hover {
+            background: #FFC300;
+            color: #2C3E50;
+        }
+
         @media (max-width: 768px) {
             .main-title { font-size: 2.2em; }
             .section-title { font-size: 1.6em; }
+            .profile-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .profile-buttons a {
+                text-align: center;
+                padding: 12px;
+            }
         }
     </style>
 """, unsafe_allow_html=True)
@@ -153,8 +175,7 @@ with tab1:
                 based on user preferences. The model is trained on a vast dataset to deliver personalized recommendations.
             </p>
         </div>
-
-        <div class="card">
+                <div class="card">
             <h3 class="section-title">⚙️ Technologies Used</h3>
             <ul style="list-style: none; padding-left: 10px;">
                 <li>🐍 <b>Python</b> - Programming Language</li>
@@ -164,27 +185,34 @@ with tab1:
                 <li>💡 <b>NLP</b> - Natural Language Processing for Recommendations</li>
             </ul>
         </div>
-    """, unsafe_allow_html=True)
-    st.markdown("""
-        <div class="footer">
-            <p>Contact: <b>muhammaddawoodmoria@gmail.com</b> | Phone: <b>+923709152202</b></p>
+
+        <div class="profile-buttons">
+            <a href="https://github.com/muhammadmoria" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/muhammaddawood361510306/" target="_blank">LinkedIn</a>
+            <a href="https://muhammadmoria.github.io/portfolio-new/">Portfolio</a>
+            <a href="https://wa.me/923709152202" target="_blank">WhatsApp</a>
+        
+        
+
+
+
+
         </div>
     """, unsafe_allow_html=True)
+
     st.markdown("""
+        
         <div class="footer">
-            <p>Github UserName: <b>muhammadmoria</b> | linkedin: muhammaddawood361510306</b></p>
+        <center>
+            <p>Gmail : <b>muhammaddawoodmoria@gmail.com</b></p>
+            </center>
         </div>
     """, unsafe_allow_html=True)
-
-
-
-
 
 # Recommender Tab with Full Image Display
 with tab2:
     st.markdown("""<div class="card">🎬 Discover Your Next Favorite Film </div>""", unsafe_allow_html=True)
 
-    # Functions for poster fetching and recommendations
     def fetch_poster(movie_id):
         url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US"
         data = requests.get(url).json()
@@ -202,12 +230,10 @@ with tab2:
             recommended_movie_names.append(movies.iloc[i[0]].title)
         return recommended_movie_names, recommended_movie_posters
 
-    # Load Data
     movies = joblib.load(open('movie_list.pkl', 'rb'))
     similarity = joblib.load(open('similarity_compressed.pkl', 'rb'))
     selected_movie = st.selectbox("Choose a Movie 🎥", movies['title'].values)
 
-    # Show Recommendations
     if st.button('🎬 Show Recommendations'):
         recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
         for name, poster in zip(recommended_movie_names, recommended_movie_posters):
@@ -233,8 +259,6 @@ with tab3:
         else:
             st.warning("Please provide both name and feedback.")
 
-    # Display previous feedback in styled boxes
-    st.markdown("<div class='card'>📜 Previous Feedback</div>", unsafe_allow_html=True)
     try:
         with open("feedback.txt", "r") as f:
             for line in f.readlines():
