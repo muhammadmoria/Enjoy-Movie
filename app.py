@@ -168,40 +168,7 @@ with tab1:
 
 
 
-    # Custom styling for buttons
-    st.markdown("""
-        <style>
-        .stButton>button {
-            width: 200px;
-            height: 90px;
-            margin: 5px;
-            font-weight: bold;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-    
-    # Title and message
-    st.markdown("""
-        <h2 style="text-align: center;">📬 Connect with Me 📬</h2>
-        <p style="text-align: center;">Let’s collaborate on projects, discuss AI innovations, or share knowledge!</p>
-    """, unsafe_allow_html=True)
-    
-    # Centered buttons for LinkedIn, GitHub, and Portfolio
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        linkedin = st.button("LinkedIn", key="linkedin")
-    if linkedin:
-        st.markdown("[Visit my LinkedIn](https://www.linkedin.com/in/muhammaddawood361510306/)")
 
-    with col2:
-        github = st.button("GitHub", key="github")
-    if github:
-        st.markdown("[Visit my GitHub](https://github.com/muhammadmoria)")
-
-    with col3:
-        portfolio = st.button("Portfolio", key="portfolio")
-    if portfolio:
-        st.markdown("[Visit my Portfolio](https://muhammadmoria.github.io/portfolio-new/)")
 
 # Recommender Tab with Full Image Display
 with tab2:
