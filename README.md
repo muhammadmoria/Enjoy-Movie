@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🎬 **Movie Recommendation System**</h1>
+  <h1>🎬 Movie Recommendation System</h1>
   <h3>Personalized Movie Suggestions Powered by Machine Learning</h3>
   <hr>
 
@@ -17,14 +17,14 @@
 
 ---
 
-## 🚀 **Overview**
+## 🚀 Overview
 
 Welcome to the **Movie Recommendation System** repository! This project leverages machine learning algorithms, specifically **Collaborative Filtering**, to provide personalized movie recommendations based on user preferences.
 
 ### **Why This Project?**
 In the age of streaming platforms, discovering new content can be overwhelming. This system solves that problem by helping users discover movies they might love based on the preferences of similar users.
 
-### **What’s Included?**
+### What’s Included?
 - **Collaborative Filtering**: User-based and item-based recommendation algorithms.
 - **Data Processing**: Efficient data pre-processing for movie and user data.
 - **Real-Time Prediction**: Movie recommendations on demand, offering an interactive user experience.
@@ -35,7 +35,7 @@ In the age of streaming platforms, discovering new content can be overwhelming. 
 
 ---
 
-## 🔧 **Features**
+## 🔧 Features
 
 - **Dynamic Movie Suggestions**: Based on a user’s preferences and past interactions.
 - **User & Item-Based Collaborative Filtering**: Two different approaches to personalize recommendations.
