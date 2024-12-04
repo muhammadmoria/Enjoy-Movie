@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🎬 Movie Recommendation System</h1>
+  <h1>CineMancer 🧙‍♂️🎥</h1>
   <h3>Personalized Movie Suggestions Powered by Machine Learning</h3>
   <hr>
 
