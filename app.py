@@ -4,8 +4,8 @@ import requests
 from datetime import datetime
 
 st.set_page_config(
-    page_title="AI Movie Recommendation System",
-    page_icon="🎬",
+    page_title="CineMancer",
+    page_icon="🧙‍♂️",
     layout="centered",
     initial_sidebar_state="expanded"
 )
@@ -153,7 +153,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Main Title with Icon
-st.markdown("""<div class="main-title">🎬 AI-Powered Movie Recommendations Engine </div>""", unsafe_allow_html=True)
+st.markdown("""<div class="main-title">🎬 CineMancer 🧙‍♂️</div>""", unsafe_allow_html=True)
 
 # Home Tab with About Me, Project Overview, and Technologies Used
 tab1, tab2, tab3 = st.tabs(["🏠 Home", "📋 Recommender", "💬 Feedback"])
@@ -189,7 +189,7 @@ with tab1:
 
         <div class="profile-buttons">
             <a href="https://github.com/muhammadmoria" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/muhammaddawood361510306/" target="_blank">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/muhammadmoria/" target="_blank">LinkedIn</a>
             <a href="https://muhammadmoria.github.io/portfolio-new/">Portfolio</a>
             <a href="https://wa.me/923709152202" target="_blank">WhatsApp</a>
         </div>
@@ -221,7 +221,7 @@ with tab2:
     similarity = joblib.load(open('similarity_compressed.pkl', 'rb'))
     selected_movie = st.selectbox("Choose a Movie 🎥", movies['title'].values)
 
-    if st.button('🎬 Show Recommendations'):
+    if st.button('🎬 Show Magic'):
         recommended_movie_names, recommended_movie_posters = recommend(selected_movie)
         for name, poster in zip(recommended_movie_names, recommended_movie_posters):
             st.markdown(f"""
